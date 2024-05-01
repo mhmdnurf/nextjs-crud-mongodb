@@ -1,12 +1,12 @@
 import connect from "../../../utils/db";
 import { NextResponse } from "next/server";
-import Comment from "../../../../models/Comment";
+import Quote from "../../../../models/Quote";
 
 export const GET = async () => {
   try {
     await connect();
-    const comments = await Comment.find().limit(3);
-    return NextResponse.json(comments);
+    const quotes = await Quote.find().limit(5);
+    return NextResponse.json(quotes);
   } catch (error) {
     console.error("Database connection failed", error);
   }
